@@ -33,7 +33,7 @@
         @font-face {
             font-family: 'Helvetica';
             src: url('assets/fonts/HelveticaRoundedLTStd-Bd.otf') format('opentype'),
-                 url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype                <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h-32 object-contain z-50" data-animate>                <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h-32 object-contain z-50" data-animate>');
+                 url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
@@ -92,14 +92,14 @@
         }
 
         /* Estilos para el menú de navegación */
-            .mobile-nav {
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-out;
-            }
+        .mobile-nav {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-out;
+        }
 
-            .mobile-nav.open {
-                transform: translateY(0);
-            }
+        .mobile-nav.open {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gradient-to-t from-gray-100 to-indigo-50 min-h-screen flex flex-col items-center justify-start text-gray-800">
@@ -134,9 +134,9 @@
 
         <!-- Contenido principal -->
         <main class="flex-grow flex flex-col justify-start items-center bg-white text-center mt-20">
-                    
+            
             <!-- Sección 1: LOGISTICA y Caballo -->
-            <section class="relative w-full text-white curved-bottom-container logistica-bg pt-4 pb-16 mb-[2rem] overflow-hidden">
+            <section id="logistica" class="relative w-full text-white curved-bottom-container logistica-bg pt-4 pb-16 mb-[2rem] overflow-hidden">
                 <!-- Capa de imagen de fondo superpuesta con efecto de multiplicación -->
                 <div id="fondo1" class="absolute inset-0 z-0 bg-[url('assets/city.webp')] bg-no-repeat bg-center bg-[length:48rem] mix-blend-multiply opacity-80" style="height: 524px;"></div>
                 <h1 class="font-impact fade-in-up text-7xl md:text-5xl font-bold tracking-widest mt-6 smb-2 drop-shadow-lg" data-animate style="color: #534483;">LOGISTICA</h1>
@@ -154,15 +154,15 @@
                         Entendemos lo importante que es para vos que tus envíos lleguen en <span class="font-bold">tiempo y forma</span>. Por eso, trabajamos día a día con un equipo comprometido y una flota lista para moverse con rapidez y seguridad.
                     </p>
                         <div class="flex justify-center">
-                            <button class="fade-in-up w-1/2 delay-5 bg-[#db582a] font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
+                            <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up w-1/2 delay-5 bg-[#db582a] text-white font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
                                 Escribinos
-                            </button>
-</div>
+                            </a>
+                        </div>
                 </div>
             </section>
             
 <!-- Sección 2: SERVICIOS -->
-            <section class="w-full shadow-2xl p-8 pt-0 transform pb-48 mt-24 z-20" style="background-image: linear-gradient(to top, #2B2343, #534483), url('assets/9345037.webp) background-size: cover; background-position: center;">
+            <section id="servicios" class="w-full shadow-2xl p-8 pt-0 transform pb-48 mt-24 z-20" style="background-image: linear-gradient(to top, #2B2343, #534483), url('assets/9345037.webp) background-size: cover; background-position: center;">
                 <div class="fixed overflow z-30 top-[-180px] left-[-35px] w-48 fade-in-left delay-3">
                     <img src="assets/Caballo.webp" alt="">
                 </div>
@@ -198,8 +198,8 @@
                         <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
                             <img class="relative z-10" style="top:15px;" src="assets/cajaszz.webp" alt="">
                     </div>
-                      <!-- Tarjeta de servicio 5 -->
-                    <div class="fade-in-up delay-4 text-white mb-16 p-6  shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
+                    <!-- Tarjeta de servicio 5 -->
+                    <div class="fade-in-up delay-4 text-white mb-16 p-6 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
                         <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">EN CASO DE AUSENCIA</h3>
                         <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">GESTION DE<BR> GRANDES VOLUMENES</h3>
                         <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
@@ -207,29 +207,29 @@
                     </div>
                 </div>
 
-                <button class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
-                                Escribinos
-                </button>
+                <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
+                    Escribinos
+                </a>
 
             </section>
 
             <!-- Sección 4: COBERTURA -->
-            <section class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
+            <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
                 <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
-                      <div class="relative z-10 flex right-0">
-                          <div class="flex flex-col relative w-3/4">
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3  $7700</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2  $5200</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1  $4400</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA  $3200</p></div>
-                          </div>
-                          
-                          <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
-                          
-                          </p>
-                      <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
-                      <img src="assets/Caballo.webp" alt="">
-                      </div>
+                     <div class="relative z-10 flex right-0">
+                         <div class="flex flex-col relative w-3/4">
+                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3 $7700</p></div>
+                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2 $5200</p></div>
+                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
+                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
+                         </div>
+                         
+                         <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
+                         
+                         </p>
+                     <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
+                     <img src="assets/Caballo.webp" alt="">
+                     </div>
             </section>
 
             <div class="ambsolute pb-0 overflow w-full"><img src="assets/city2.webp" alt=""></div>
@@ -479,7 +479,7 @@
                 
             </section>
 
-              <!-- Sección de Contacto -->
+            <!-- Sección de Contacto -->
             <section id="contactanos" class="w-full py-20 px-8 bg-gradient-to-t from-gray-100 to-white">
                 <div class="max-w-xl mx-auto text-center">
                     <h2 class="font-impact text-4xl sm:text-5xl font-bold tracking-widest leading-tight text-[#524381] mb-6">CONTACTANOS</h2>
@@ -487,15 +487,15 @@
                         Envíanos un mensaje y te responderemos a la brevedad.
                     </p>
 
-                    <form action="https://script.google.com/macros/s/AKfycbxFCw3U8vJSptJetZ7Hekl2j7WqPwOYQv8sNGb4S0VzeUEEplplonEzEUrV64F2nCHr/exec" method="POST" class="w-full space-y-6">
+                    <form action="https://script.google.com/macros/s/AKfycbyE9NSGBS-kV7AzPjHtXNbtIPqRu5h3kUdN9pQ6fcr-bHn_BHdFxXkfaon6sV3rrcmr/exec" method="POST" class="w-full space-y-6">
                         <input type="text" name="nombre" placeholder="Nombre completo" required
                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <input type="email" name="email" placeholder="Correo electrónico" required
                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required
-                                     class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
+                                           class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                         <button type="submit"
-                                 class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                                         class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             Enviar Mensaje
                         </button>
                     </form>
@@ -528,15 +528,15 @@
                     </div>
                 </div>
 
-                     <div class="relative w-full bg-white p-12 text-center">
-                  <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
-                  <p>
-                      Confianza en Cada Kilómetro. <br>
-                      © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
-                      Oficina Almagro, Deposito San Cristóbal CABA.<br>
-                      Tel: +54 011-6259-7344
-                  </p>
-              </div>
+                      <div class="relative w-full bg-white p-12 text-center">
+                    <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
+                    <p>
+                          Confianza en Cada Kilómetro. <br>
+                          © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
+                          Oficina Almagro, Deposito San Cristóbal CABA.<br>
+                          Tel: +54 011-6259-7344
+                    </p>
+                  </div>
 
             </section>
         </main>
@@ -575,13 +575,20 @@
                 observer.observe(el);
             });
 
-            // Nueva lógica para el menú de navegación principal
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileNav = document.getElementById('mobile-nav');
+            // Lógica para el menú de navegación principal y el cierre al hacer clic
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileNavLinks = mobileNav.querySelectorAll('a');
 
-                menuToggle.addEventListener('click', () => {
-                    mobileNav.classList.toggle('open');
+            menuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('open');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('open');
                 });
+            });
 
             // Lógica para el menú desplegable de comunas
             const comunaTriggers = document.querySelectorAll('.comuna-trigger');
