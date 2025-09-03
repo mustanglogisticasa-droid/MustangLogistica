@@ -3,57 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logística Móvil Completo</title>
+    <title>Mustang Logística</title>
     <!-- Incluye Tailwind CSS desde CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Configuración de Tailwind para usar la fuente Impact
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'abolition': ['Abolition', 'sans-serif'],
+                        'impact': ['Impact', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://use.typekit.net/uyx6qir.css">
+    <!-- Se usan las fuentes de Google Fonts para asegurar su carga -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Impact&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Impact&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        /* Nueva clase para la fuente Impact */
-        .font-impact {
-            font-family: 'Impact', sans-serif;
-        }
-
-        /* Aquí se define la nueva fuente sin tocar la anterior */
-        @font-face {
-            font-family: 'Helvetica';
-            src: url('assets/fonts/HelveticaRoundedLTStd-Bd.otf') format('opentype'),
-                 url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /*
-         * Clases para las animaciones CSS.
-         * Estas animaciones se activarán con JavaScript.
-         */
+        /* Clases para animaciones - se mantiene la funcionalidad original */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(2rem); /* Inicia un poco abajo */
+            transform: translateY(2rem);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in-up.is-visible {
             opacity: 1;
-            transform: translateY(0); /* Vuelve a la posición original */
+            transform: translateY(0);
         }
-        
-        /* Retrasos para las animaciones */
+
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.3s; }
         .delay-3 { transition-delay: 0.5s; }
@@ -63,35 +47,30 @@
         .delay-7 { transition-delay: 1.3s; }
         .delay-8 { transition-delay: 1.5s; }
 
-        /* Nuevo estilo para el contenedor curvo en la parte inferior */
+        /* Estilo para el contenedor curvo - se ajusta para ser más flexible */
         .curved-bottom-container {
-            border-bottom-left-radius: 50% 150px;
-            border-bottom-right-radius: 50% 150px;
+            border-bottom-left-radius: 50% 100px;
+            border-bottom-right-radius: 50% 100px;
         }
 
         @media (min-width: 768px) {
             .curved-bottom-container {
-                border-bottom-left-radius: 50% 200px;
-                border-bottom-right-radius: 50% 200px;
+                border-bottom-left-radius: 50% 150px;
+                border-bottom-right-radius: 50% 150px;
             }
         }
 
-        /* Estilo para el fondo con degradado en la sección de Logística */
-        .logistica-bg {
-            background-image: linear-gradient(to top, rgba(31, 0, 128, 0.44), #ffffff);
-        }
-
-        /* Estilos para el menú desplegable */
+        /* Estilo para el menú desplegable */
         .collapsible-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
         .collapsible-content.open {
-            max-height: 500px; /* Un valor lo suficientemente grande para que se muestre todo el contenido */
+            max-height: 500px;
         }
 
-        /* Estilos para el menú de navegación */
+        /* Estilos para el menú de navegación móvil */
         .mobile-nav {
             transform: translateY(-100%);
             transition: transform 0.3s ease-out;
@@ -102,17 +81,16 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-t from-gray-100 to-indigo-50 min-h-screen flex flex-col items-center justify-start text-gray-800">
+<body class="bg-gradient-to-t from-gray-100 to-indigo-50 min-h-screen flex flex-col items-center text-gray-800">
 
-    <!-- Contenedor principal para el diseño - SE AGREGÓ LA CLASE 'md:hidden' AQUÍ -->
-    <div class="relative w-full mx-auto min-h-screen flex flex-col overflow-x-hidden md:hidden">
+    <!-- Contenedor principal responsive y centrado -->
+    <div class="relative w-full md:max-w-4xl mx-auto min-h-screen flex flex-col overflow-x-hidden">
 
         <!-- Cabecera -->
-        <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50" style="background-color: #534483;">
+        <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50 md:max-w-4xl mx-auto" style="background-color: #534483;">
             <div class="flex items-center space-x-2">
                 <!-- Logo -->
-                <img src="assets/MustanLogoIsologo.webp" alt="Logo de la empresa" class="w-14 h-14 object-contain rounded-full">
-                <span class="font-bold text-sm tracking-widest"></span>
+                <img src="https://placehold.co/100x100/534483/ffffff?text=LOGO" alt="Logo de la empresa" class="w-14 h-14 object-contain rounded-full">
             </div>
             <!-- Botón de menú hamburguesa (SVG) -->
             <button id="menu-toggle" aria-label="Menú">
@@ -133,120 +111,112 @@
         </nav>
 
         <!-- Contenido principal -->
-        <main class="flex-grow flex flex-col justify-start items-center bg-white text-center mt-20">
+        <main class="flex-grow flex flex-col justify-start items-center bg-white text-center mt-20 md:mt-24">
             
             <!-- Sección 1: LOGISTICA y Caballo -->
-            <section id="logistica" class="relative w-full text-white curved-bottom-container logistica-bg pt-4 pb-16 mb-[2rem] overflow-hidden">
-                <!-- Capa de imagen de fondo superpuesta con efecto de multiplicación -->
-                <div id="fondo1" class="absolute inset-0 z-0 bg-[url('assets/city.webp')] bg-no-repeat bg-center bg-[length:48rem] mix-blend-multiply opacity-80" style="height: 524px;"></div>
-                <h1 class="font-impact fade-in-up text-7xl md:text-5xl font-bold tracking-widest mt-6 smb-2 drop-shadow-lg" data-animate style="color: #534483;">LOGISTICA</h1>
-                <p class="fade-in-up delay-1 text-xl md:text-2xl text-left mt-12 pl-[2rem] font-semibold mb-4" style="color: #534483;" data-animate>Confianza<br> en Cada Kilómetro</p>
-            <!-- Imágenes superpuestas en el eje Z -->
-                <img src="assets/horse1.webp" alt="P3" class="P3 fade-in-up relative h-60 z-30 mx-auto" data-animate>
-
-                <div class="absolute bottom-4 left-0 transform -translate-x-1/4">
-                    <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h=¨32¨ object-contain z-50" data-animate>
+            <section id="logistica" class="relative w-full text-white curved-bottom-container pt-4 pb-16 mb-8 md:mb-12 overflow-hidden" style="background-color: #534483;">
+                <!-- Capa de imagen de fondo superpuesta -->
+                <div class="absolute inset-0 z-0 bg-[url('https://placehold.co/600x400/534483/ffffff?text=CIUDAD')] bg-no-repeat bg-center bg-cover mix-blend-multiply opacity-80" ></div>
+                
+                <h1 class="font-impact fade-in-up text-7xl font-bold tracking-widest mt-6 drop-shadow-lg" data-animate>LOGISTICA</h1>
+                <p class="fade-in-up delay-1 text-xl text-center px-4 md:text-2xl mt-4 font-semibold mb-4" data-animate>Confianza en Cada Kilómetro</p>
+                <div class="relative z-10 flex flex-col items-center justify-center p-4">
+                    <img src="https://placehold.co/300x300/db582a/ffffff?text=CABALLO" alt="P3" class="P3 fade-in-up relative h-60 w-auto z-30 mb-8" data-animate>
                 </div>
-
-                <div class="relative z-10 flex flex-col text-left justify-left p-4">
-                    <h2 class="font-impact fade-in-up delay-3 text-lg px-4 md:text-xl mb-4" data-animate style="color: #534483;">Más de 10 años de experiencia en el mercado!</h2>
-                    <p class="fade-in-up delay-4 text-sm md:text-base mb-6 px-4" data-animate style="color: #534483;">
+                
+                <div class="relative z-10 flex flex-col text-left justify-left px-8">
+                    <h2 class="font-impact fade-in-up delay-3 text-lg md:text-xl mb-4" data-animate style="color: #FCC02E;">¡Más de 10 años de experiencia en el mercado!</h2>
+                    <p class="fade-in-up delay-4 text-sm md:text-base mb-6" data-animate>
                         Entendemos lo importante que es para vos que tus envíos lleguen en <span class="font-bold">tiempo y forma</span>. Por eso, trabajamos día a día con un equipo comprometido y una flota lista para moverse con rapidez y seguridad.
                     </p>
-                        <div class="flex justify-center">
-                            <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up w-1/2 delay-5 bg-[#db582a] text-white font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
-                                Escribinos
-                            </a>
-                        </div>
+                    <div class="flex justify-center">
+                        <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up w-full md:w-1/2 delay-5 bg-[#db582a] text-white font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
+                            Escribinos
+                        </a>
+                    </div>
                 </div>
             </section>
             
-<!-- Sección 2: SERVICIOS -->
-            <section id="servicios" class="w-full shadow-2xl p-8 pt-0 transform pb-48 mt-24 z-20" style="background-image: linear-gradient(to top, #2B2343, #534483), url('assets/9345037.webp) background-size: cover; background-position: center;">
-                <div class="fixed overflow z-30 top-[-180px] left-[-35px] w-48 fade-in-left delay-3">
-                    <img src="assets/Caballo.webp" alt="">
-                </div>
-              
-                <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 z-30shadow-lg">
-                    <h2 class="text-center font-impact text-2xl tracking-widest" style="color:#534483; font-size:60px;">Nuestros</h2>
-                </div>
-                
-                <div class="relative z-10 flex flex-col items-center justify-center p-4">
-                    <h2 class="font-impact fade-in-up delay-1 text-2xl mb-4 text-white text-center tracking-widest" style="font-size:52px;"data-animate>SERVICIOS</h2>
-                </div>
-                <div class="space-y-34 mb-18 text-left">
-                    <!-- Tarjeta de servicio 1 -->
-                    <div class="fade-in-up delay-2 l-1 text-white mb-24 p-6 pb-0 mt-8 pt-40 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
-                        <img class="fixed overflow z-10 w-3/4 top-[-50px] right-[-35px]" src="assets/Mapita00.webp" alt="">
-                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">ENVIOS EXPRESS</h3>
-                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">AMPLIA<br>COBERTURA</h3>
-                        <p class="text-sm mb-2">Contamos con una amplia flota de vehículos para cubrir tus necesidades de transporte en todo el país.</p>
-                            <img class="relative z-10" style="top:15px;" src="assets/cajaspack2.webp" alt="">
+            <!-- Sección 2: SERVICIOS -->
+            <section id="servicios" class="w-full shadow-2xl p-8 pt-0 transform pb-24 mt-[-6rem] md:mt-[-8rem] z-20 rounded-t-3xl md:rounded-t-full" style="background-color: #534483;">
+                <h2 class="font-impact text-white text-4xl md:text-5xl mt-8 tracking-widest leading-tight">Nuestros<br>SERVICIOS</h2>
+
+                <div class="relative z-10 flex flex-col items-center justify-center py-8">
+                    <img class="w-24 h-24 absolute left-0 top-0 opacity-50" src="https://placehold.co/150x150/534483/ffffff?text=CABALLO+2" alt="Ícono de caballo">
+                    <img class="w-24 h-24 absolute right-0 top-0 opacity-50" src="https://placehold.co/150x150/534483/ffffff?text=CABALLO+2" alt="Ícono de caballo">
+                    
+                    <div class="space-y-12 mt-8 md:mt-12 text-left">
+                        <!-- Tarjeta de servicio 1 -->
+                        <div class="fade-in-up delay-2 text-white p-6 rounded-lg shadow-lg border-2 border-[#2B2343] bg-gradient-to-t from-[#2B2343] to-[#534483]" data-animate>
+                            <img class="w-2/3 h-auto absolute right-0 top-[-2rem] opacity-70" src="https://placehold.co/200x150/2B2343/FCC02E?text=CAJAS" alt="Ícono de cajas">
+                            <h3 class="text-3xl tracking-widest font-impact mb-2" style="color: #FCC02E;">ENVIOS EXPRESS</h3>
+                            <h3 class="text-2xl font-bold mb-2 leading-tight">AMPLIA<br>COBERTURA</h3>
+                            <p class="text-sm mb-2">Contamos con una amplia flota de vehículos para cubrir tus necesidades de transporte en todo el país.</p>
+                        </div>
+
+                        <!-- Tarjeta de servicio 2 -->
+                        <div class="fade-in-up delay-3 text-white p-6 rounded-lg shadow-lg border-2 border-[#2B2343] bg-gradient-to-t from-[#2B2343] to-[#534483]" data-animate>
+                            <img class="w-2/3 h-auto absolute left-0 top-[-2rem] opacity-70" src="https://placehold.co/200x150/2B2343/FCC02E?text=CALENDARIO" alt="Ícono de calendario">
+                            <h3 class="text-3xl tracking-widest font-impact mb-2" style="color: #FCC02E;">ESPECIALIZADA</h3>
+                            <h3 class="text-2xl font-bold mb-2 leading-tight">DISTRIBUCIÓN<br>PARA EMPRESAS</h3>
+                            <p class="text-sm mb-2">Ofrecemos soluciones de almacenamiento seguras y una red de distribución eficiente para tus productos.</p>
+                        </div>
                         
-                    </div>
-                    <!-- Tarjeta de servicio 2 -->
-                    <div class="fade-in-up delay-3 text-white mb-24 p-6 pb-0 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
-                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">ESPECIALIZADA</h3>
-                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">DISTRIBUCIÓN<BR>PARA EMPRESAS</h3>
-                        <p class="text-sm mb-2">Ofrecemos soluciones de almacenamiento seguras y una red de distribución eficiente para tus productos.</p>
-                            <img class="relative z-10" style="top:15px;" src="assets/mustangcalen.webp" alt="">
-                    </div>
-                    <!-- Tarjeta de servicio 3 -->
-                    <div class="fade-in-up delay-4 text-white mb-24 p-6 pb-0 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
-                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">OPTIMIZACIÓN</h3>
-                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">GESTION DE<BR> GRANDES VOLUMENES</h3>
-                        <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
-                            <img class="relative z-10" style="top:15px;" src="assets/cajaszz.webp" alt="">
-                    </div>
-                    <!-- Tarjeta de servicio 5 -->
-                    <div class="fade-in-up delay-4 text-white mb-16 p-6 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
-                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">EN CASO DE AUSENCIA</h3>
-                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">GESTION DE<BR> GRANDES VOLUMENES</h3>
-                        <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
-                            <img class="pt-6 w-full" src="assets/cballt3.webp" alt="">
+                        <!-- Tarjeta de servicio 3 -->
+                        <div class="fade-in-up delay-4 text-white p-6 rounded-lg shadow-lg border-2 border-[#2B2343] bg-gradient-to-t from-[#2B2343] to-[#534483]" data-animate>
+                            <img class="w-2/3 h-auto absolute right-0 top-[-2rem] opacity-70" src="https://placehold.co/200x150/2B2343/FCC02E?text=CAJAS" alt="Ícono de cajas">
+                            <h3 class="text-3xl tracking-widest font-impact mb-2" style="color: #FCC02E;">OPTIMIZACIÓN</h3>
+                            <h3 class="text-2xl font-bold mb-2 leading-tight">GESTION DE<br>GRANDES VOLUMENES</h3>
+                            <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
+                        </div>
                     </div>
                 </div>
 
-                <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
+                <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 mt-8 inline-block" data-animate>
                     Escribinos
                 </a>
-
             </section>
 
             <!-- Sección 4: COBERTURA -->
-            <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
-                <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
-                     <div class="relative z-10 flex right-0">
-                         <div class="flex flex-col relative w-3/4">
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3 $7700</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2 $5200</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
-                         </div>
-                         
-                         <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
-                         
-                         </p>
-                     <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
-                     <img src="assets/Caballo.webp" alt="">
-                     </div>
+            <section id="cobertura" class="relative overflow-hidden w-full bg-gradient-to-b from-transparent to-white p-8 transform z-20 mt-[-4rem]">
+                <h2 class="font-impact fade-in-up delay-1 text-5xl md:text-6xl mb-4 text-[#534483] text-center tracking-widest leading-tight" data-animate>ZONAS DE<br>COBERTURA</h2>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mt-8">
+                    <div class="flex flex-col space-y-4 w-full md:w-1/2">
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 mr-4" src="https://placehold.co/50x50/db582a/ffffff?text=GPS" alt="Ícono de GPS">
+                            <p class="bg-white rounded-r-full p-2 pl-4 pr-6 font-bold text-lg">CABA $3200</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 mr-4" src="https://placehold.co/50x50/4E83F0/ffffff?text=GPS" alt="Ícono de GPS">
+                            <p class="bg-white rounded-r-full p-2 pl-4 pr-6 font-bold text-lg">GBA Z1 $4400</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 mr-4" src="https://placehold.co/50x50/4c35a7/ffffff?text=GPS" alt="Ícono de GPS">
+                            <p class="bg-white rounded-r-full p-2 pl-4 pr-6 font-bold text-lg">GBA Z2 $5200</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 mr-4" src="https://placehold.co/50x50/392a6a/ffffff?text=GPS" alt="Ícono de GPS">
+                            <p class="bg-white rounded-r-full p-2 pl-4 pr-6 font-bold text-lg">GBA Z3 $7700</p>
+                        </div>
+                    </div>
+                    <img class="w-full md:w-1/2 mt-8 md:mt-0" src="https://placehold.co/400x400/4E83F0/ffffff?text=MAPA" alt="mapa de cobertura">
+                </div>
             </section>
 
-            <div class="ambsolute pb-0 overflow w-full"><img src="assets/city2.webp" alt=""></div>
+            <div class="relative w-full overflow-hidden mt-4">
+                <img src="https://placehold.co/1200x200/2B2343/ffffff?text=CIUDAD+2" alt="Ciudad de fondo" class="w-full h-auto">
+            </div>
 
-            <section class="bg-white rounded-lg overflow-hidden w-full mb-18 max-w-4xl p-8 space-y-8">
-                
-                <!-- Sección de C.A.B.A. -->
+            <!-- Sección de C.A.B.A. -->
+            <section class="bg-white rounded-lg overflow-hidden w-full max-w-4xl p-8 space-y-8 mt-4">
                 <div class="border-b-2 border-black pb-4">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 tracking-wide" style="color: #db592b;">C.A.B.A.</h2>
-                    
-                    <!-- Contenedor de la cuadrícula -->
-                    <div class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-y-4 text-3xl font-abolition" style="color: #4e84f2;">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wide" style="color: #db592b;">C.A.B.A.</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-4 text-xl font-bold" style="color: #4e84f2;">
                         <!-- Comuna 1 -->
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 1 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Retiro</li>
                                     <li>San Nicolás</li>
                                     <li>Puerto Madero</li>
@@ -260,7 +230,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 2 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Recoleta</li>
                                 </ul>
                             </div>
@@ -269,7 +239,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 3 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Balvanera</li>
                                     <li>San Cristóbal</li>
                                 </ul>
@@ -279,7 +249,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 4 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>La Boca</li>
                                     <li>Barracas</li>
                                     <li>Parque Patricios</li>
@@ -291,7 +261,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 5 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Almagro</li>
                                     <li>Boedo</li>
                                 </ul>
@@ -301,7 +271,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 6 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Caballito</li>
                                 </ul>
                             </div>
@@ -310,7 +280,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 7 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Flores</li>
                                     <li>Parque Chacabuco</li>
                                 </ul>
@@ -320,7 +290,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 8 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Villa Soldati</li>
                                     <li>Villa Riachuelo</li>
                                     <li>Villa Lugano</li>
@@ -331,7 +301,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 9 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Liniers</li>
                                     <li>Mataderos</li>
                                     <li>Parque Avellaneda</li>
@@ -342,7 +312,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 10 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Floresta</li>
                                     <li>Monte Castro</li>
                                     <li>Vélez Sarsfield</li>
@@ -354,7 +324,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 11 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Villa Devoto</li>
                                     <li>Villa del Parque</li>
                                     <li>Villa General Mitre</li>
@@ -366,7 +336,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 12 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Coghlan</li>
                                     <li>Saavedra</li>
                                     <li>Villa Urquiza</li>
@@ -378,7 +348,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 13 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Belgrano</li>
                                     <li>Núñez</li>
                                     <li>Colegiales</li>
@@ -389,7 +359,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 14 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Palermo</li>
                                 </ul>
                             </div>
@@ -398,7 +368,7 @@
                         <div>
                             <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 15 <span class="text-sm font-normal">▼</span></p>
                             <div class="collapsible-content">
-                                <ul class="list-none text-left text-xl font-Helvetica tracking-wider space-y-1 mt-2 pl-4 text-gray-700">
+                                <ul class="list-none text-left text-base space-y-1 mt-2 pl-4 text-gray-700">
                                     <li>Chacarita</li>
                                     <li>Villa Crespo</li>
                                     <li>Paternal</li>
@@ -412,71 +382,67 @@
                 </div>
 
                 <!-- Sección de GBA -->
-                <div class="space-y-4">
-                <div class="flex flex-row md:flex-row justify-between text-center md:text-left">
-                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2 md:py-0" style="color: #4e84f2; border-color:#4e84f2 ;">GBA Zona 1</h3>
-                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2 md:py-0" style="color: #4c35a7; border-color: #4c35a7;">GBA Zona 2</h3>
-                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2" style="color: #392a6a; border-color:#392a6a ;">GBA Zona 3</h3>
+                <div class="space-y-4 mt-8">
+                    <div class="grid grid-cols-3 gap-2 text-center text-lg font-extrabold mb-4">
+                        <h3 class="text-[1.2rem] font-bold text-[#4e84f2] border-b-2 py-2" style="border-color: #4e84f2;">GBA Zona 1</h3>
+                        <h3 class="text-[1.2rem] font-bold text-[#4c35a7] border-b-2 py-2" style="border-color: #4c35a7;">GBA Zona 2</h3>
+                        <h3 class="text-[1.2rem] font-bold text-[#392a6a] border-b-2 py-2" style="border-color: #392a6a;">GBA Zona 3</h3>
+                    </div>
+
+                    <div class="grid grid-cols-3 md:grid-cols-3 text-sm md:text-base gap-2" style="color:#db5a2c;">
+                        <!-- GBA Zona 1 -->
+                        <ul class="list-none space-y-1">
+                            <li>San Fernando</li>
+                            <li>San Isidro</li>
+                            <li>Vicente Lopez</li>
+                            <li>San Martin</li>
+                            <li>3 de Febrero</li>
+                            <li>Hurlingham</li>
+                            <li>Ituizango</li>
+                            <li>Moron</li>
+                            <li>La Matanza</li>
+                            <li>Lomas de Zamora</li>
+                            <li>Lanús</li>
+                            <li>Avellaneda</li>
+                        </ul>
+                        
+                        <!-- GBA Zona 2 -->
+                        <ul class="list-none space-y-1">
+                            <li>Nordelta</li>
+                            <li>Tigre</li>
+                            <li>Escobar</li>
+                            <li>Malvinas Argentinas</li>
+                            <li>San Miguel</li>
+                            <li>José C. Paz</li>
+                            <li>Pilar</li>
+                            <li>Moreno</li>
+                            <li>Merlo</li>
+                            <li>La Matanza</li>
+                            <li>Ezeiza</li>
+                            <li>Esteban Echeverria</li>
+                            <li>Almirante Brown</li>
+                            <li>Quilmes</li>
+                            <li>Florencio Varela</li>
+                            <li>Berazategui</li>
+                        </ul>
+                        
+                        <!-- GBA Zona 3 -->
+                        <ul class="list-none space-y-1">
+                            <li>Campana</li>
+                            <li>Zarate</li>
+                            <li>Villa Rosa</li>
+                            <li>Luján</li>
+                            <li>General Rodriguez</li>
+                            <li>Marcos Paz</li>
+                            <li>Cañuelas</li>
+                            <li>San Vicente</li>
+                            <li>Guernica</li>
+                            <li>La Plata</li>
+                            <li>Ensenada</li>
+                            <li>Berisso</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <!-- Contenedor de las listas de GBA -->
-                <div class="grid grid-cols-3 md:grid-cols-3 text-lg gap-2 font-extrabold" style="color:#db5a2c;">
-                    
-                    <!-- GBA Zona 1 -->
-                    <ul class="list-none space-y-1 font-Helvetica tracking-tighter" style="">
-                    <li>San Fernando</li>
-                    <li>San Isidro</li>
-                    <li>Vicente Lopez</li>
-                    <li>San Martin</li>
-                    <li>3 de Febrero</li>
-                    <li>Hurlingham</li>
-                    <li>Ituizango</li>
-                    <li>Moron</li>
-                    <li>La matanza</li>
-                    <li>Lomas de Zamora</li>
-                    <li>Lanús</li>
-                    <li>Avellaneda</li>
-                    </ul>
-                    
-                    <!-- GBA Zona 2 -->
-                    <ul class="list-none space-y-1">
-                    <li>Nordelta</li>
-                    <li>Tigre</li>
-                    <li>Escobar</li>
-                    <li>Malvinas Argentinas</li>
-                    <li>San Miguel</li>
-                    <li>José C. Paz</li>
-                    <li>Pilar</li>
-                    <li>Moreno</li>
-                    <li>Merlo</li>
-                    <li>La Matanza</li>
-                    <li>Ezeiza</li>
-                    <li>Esteban Echeverria</li>
-                    <li>Almirante Brown</li>
-                    <li>Quilmes</li>
-                    <li>Florencio Varela</li>
-                    <li>Berazategui</li>
-                    </ul>
-                    
-                    <!-- GBA Zona 3 -->
-                    <ul class="list-none space-y-1">
-                    <li>Campana</li>
-                    <li>Zarate</li>
-                    <li>Villa Rosa</li>
-                    <li>Luján</li>
-                    <li>General Rodriguez</li>
-                    <li>Marcos Paz</li>
-                    <li>Cañuelas</li>
-                    <li>San Vicente</li>
-                    <li>Guernica</li>
-                    <li>La Plata</li>
-                    <li>Ensenada</li>
-                    <li>Berisso</li>
-                    </ul>
-                    
-                </div>
-                </div>
-                
             </section>
 
             <!-- Sección de Contacto -->
@@ -493,52 +459,38 @@
                         <input type="email" name="email" placeholder="Correo electrónico" required
                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required
-                                           class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
+                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                         <button type="submit"
-                                         class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                               class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             Enviar Mensaje
                         </button>
                     </form>
                     
                     <div class="mt-8 flex justify-center space-x-6">
-                        <!-- Redes sociales, puedes reemplazar los # con tus enlaces -->
+                        <!-- Redes sociales -->
                         <a href="https://www.instagram.com/mustang_logistica/" class="text-gray-600 hover:text-[#db582a] transition-colors">
-                            <img class="w-8 h-8" src="assets/smiconinsta.webp" alt="Instagram">
+                            <img class="w-8 h-8 rounded-full" src="https://placehold.co/32x32/524381/ffffff?text=IG" alt="Instagram">
                         </a>
                         <a href="https://wa.me/5491162597344" class="text-gray-600 hover:text-[#db582a] transition-colors">
-                            <img class="w-8 h-8" src="assets/smiconwhats.webp" alt="WhatsApp">
+                            <img class="w-8 h-8 rounded-full" src="https://placehold.co/32x32/524381/ffffff?text=WA" alt="WhatsApp">
                         </a>
                         <a href="mailto:Mustang.logistica.sa@gmail.com" target="_blank" class="text-gray-600 hover:text-[#db582a] transition-colors">
-                            <img class="w-8 h-8" src="assets/smiconmail.webp" alt="Facebook">
+                            <img class="w-8 h-8 rounded-full" src="https://placehold.co/32x32/524381/ffffff?text=M" alt="Mail">
                         </a>
                     </div>
                 </div>
             </section>
 
-            <section class="w-full relative">
-                <div class="flex bg-[url('assets/caballofuter.webp')] bg-cover bg-center pr-0 h-[200px]" >
-                    <div class="flex flex-row w-full items-centar pt-2">
-                        <div class="flex w-1/2 "></div>
-                        <h2 class="flex w-1/2 font-impact text-[#524381]">Mustang Logistica</h2>
-                        <div class="flex row">
-                        <img class=" flex-inline" src="" alt="">
-                        <img class=" flex-inline" src="" alt="">
-                        <img class=" flex-inline" src="" alt="">
-                        </div>
-                    </div>
+            <!-- Pie de página -->
+            <footer class="w-full relative bg-gray-900 text-white py-12 px-8 text-center rounded-t-lg mt-8">
+                <h2 class="text-[#524381] font-impact text-3xl mb-4">Mustang Logistica</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-gray-400">
+                    <p>Confianza en Cada Kilómetro.</p>
+                    <p>© 2024 Mustang Logística. Todos los derechos reservados.</p>
+                    <p>Oficina Almagro, Deposito San Cristóbal CABA.</p>
+                    <p>Tel: +54 011-6259-7344</p>
                 </div>
-
-                      <div class="relative w-full bg-white p-12 text-center">
-                    <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
-                    <p>
-                          Confianza en Cada Kilómetro. <br>
-                          © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
-                          Oficina Almagro, Deposito San Cristóbal CABA.<br>
-                          Tel: +54 011-6259-7344
-                    </p>
-                  </div>
-
-            </section>
+            </footer>
         </main>
         
         <!-- Botón flotante de WhatsApp -->
@@ -560,7 +512,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // JavaScript existente para la animación de entrada
+            // Lógica de animaciones de entrada
             const animatedElements = document.querySelectorAll('[data-animate]');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -575,7 +527,7 @@
                 observer.observe(el);
             });
 
-            // Lógica para el menú de navegación principal y el cierre al hacer clic
+            // Lógica para el menú de navegación principal
             const menuToggle = document.getElementById('menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
             const mobileNavLinks = mobileNav.querySelectorAll('a');
