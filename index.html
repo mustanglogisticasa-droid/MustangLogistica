@@ -33,71 +33,171 @@
         @font-face {
             font-family: 'Helvetica';
             src: url('assets/fonts/HelveticaRoundedLTStd-Bd.otf') format('opentype'),
-                 url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype                <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h-32 object-contain z-50" data-animate>                <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h-32 object-contain z-50" data-animate>');
                  url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
-@@ -92,14 +92,14 @@
+
+        /*
+         * Clases para las animaciones CSS.
+         * Estas animaciones se activarán con JavaScript.
+         */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(2rem); /* Inicia un poco abajo */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0); /* Vuelve a la posición original */
+        }
+        
+        /* Retrasos para las animaciones */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.5s; }
+        .delay-4 { transition-delay: 0.7s; }
+        .delay-5 { transition-delay: 0.9s; }
+        .delay-6 { transition-delay: 1.1s; }
+        .delay-7 { transition-delay: 1.3s; }
+        .delay-8 { transition-delay: 1.5s; }
+
+        /* Nuevo estilo para el contenedor curvo en la parte inferior */
+        .curved-bottom-container {
+            border-bottom-left-radius: 50% 150px;
+            border-bottom-right-radius: 50% 150px;
+        }
+
+        @media (min-width: 768px) {
+            .curved-bottom-container {
+                border-bottom-left-radius: 50% 200px;
+                border-bottom-right-radius: 50% 200px;
+            }
+        }
+
+        /* Estilo para el fondo con degradado en la sección de Logística */
+        .logistica-bg {
+            background-image: linear-gradient(to top, rgba(31, 0, 128, 0.44), #ffffff);
+        }
+
+        /* Estilos para el menú desplegable */
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .collapsible-content.open {
+            max-height: 500px; /* Un valor lo suficientemente grande para que se muestre todo el contenido */
         }
 
         /* Estilos para el menú de navegación */
-            .mobile-nav {
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-out;
-            }
         .mobile-nav {
             transform: translateY(-100%);
             transition: transform 0.3s ease-out;
         }
 
-            .mobile-nav.open {
-                transform: translateY(0);
-            }
         .mobile-nav.open {
             transform: translateY(0);
         }
     </style>
 </head>
 <body class="bg-gradient-to-t from-gray-100 to-indigo-50 min-h-screen flex flex-col items-center justify-start text-gray-800">
-@@ -134,9 +134,9 @@
+
+    <!-- Contenedor principal para el diseño - SE AGREGÓ LA CLASE 'md:hidden' AQUÍ -->
+    <div class="relative w-full mx-auto min-h-screen flex flex-col overflow-x-hidden md:hidden">
+
+        <!-- Cabecera -->
+        <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50" style="background-color: #534483;">
+            <div class="flex items-center space-x-2">
+                <!-- Logo -->
+                <img src="assets/MustanLogoIsologo.webp" alt="Logo de la empresa" class="w-14 h-14 object-contain rounded-full">
+                <span class="font-bold text-sm tracking-widest"></span>
+            </div>
+            <!-- Botón de menú hamburguesa (SVG) -->
+            <button id="menu-toggle" aria-label="Menú">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </header>
+
+        <!-- Menú de navegación móvil -->
+        <nav id="mobile-nav" class="mobile-nav fixed top-16 left-0 w-full z-40 bg-white shadow-xl py-4 transition-all duration-300">
+            <ul class="flex flex-col items-center space-y-4 text-lg text-gray-800">
+                <li><a href="#logistica" class="hover:text-[#db582a]">Logística</a></li>
+                <li><a href="#servicios" class="hover:text-[#db582a]">Nuestros Servicios</a></li>
+                <li><a href="#cobertura" class="hover:text-[#db582a]">Zonas de Cobertura</a></li>
+                <li><a href="#contactanos" class="hover:text-[#db582a]">Contactanos</a></li>
+            </ul>
+        </nav>
 
         <!-- Contenido principal -->
         <main class="flex-grow flex flex-col justify-start items-center bg-white text-center mt-20">
-                    
             
             <!-- Sección 1: LOGISTICA y Caballo -->
-            <section class="relative w-full text-white curved-bottom-container logistica-bg pt-4 pb-16 mb-[2rem] overflow-hidden">
             <section id="logistica" class="relative w-full text-white curved-bottom-container logistica-bg pt-4 pb-16 mb-[2rem] overflow-hidden">
                 <!-- Capa de imagen de fondo superpuesta con efecto de multiplicación -->
                 <div id="fondo1" class="absolute inset-0 z-0 bg-[url('assets/city.webp')] bg-no-repeat bg-center bg-[length:48rem] mix-blend-multiply opacity-80" style="height: 524px;"></div>
                 <h1 class="font-impact fade-in-up text-7xl md:text-5xl font-bold tracking-widest mt-6 smb-2 drop-shadow-lg" data-animate style="color: #534483;">LOGISTICA</h1>
-@@ -154,15 +154,15 @@
+                <p class="fade-in-up delay-1 text-xl md:text-2xl text-left mt-12 pl-[2rem] font-semibold mb-4" style="color: #534483;" data-animate>Confianza<br> en Cada Kilómetro</p>
+            <!-- Imágenes superpuestas en el eje Z -->
+                <img src="assets/horse1.webp" alt="P3" class="P3 fade-in-up relative h-60 z-30 mx-auto" data-animate>
+
+                <div class="absolute bottom-4 left-0 transform -translate-x-1/4">
+                    <img src="assets/Caballo.webp" alt="Cabeza de caballo" height class="fade-in-up delay-6 fixed w-32 h=¨32¨ object-contain z-50" data-animate>
+                </div>
+
+                <div class="relative z-10 flex flex-col text-left justify-left p-4">
+                    <h2 class="font-impact fade-in-up delay-3 text-lg px-4 md:text-xl mb-4" data-animate style="color: #534483;">Más de 10 años de experiencia en el mercado!</h2>
+                    <p class="fade-in-up delay-4 text-sm md:text-base mb-6 px-4" data-animate style="color: #534483;">
                         Entendemos lo importante que es para vos que tus envíos lleguen en <span class="font-bold">tiempo y forma</span>. Por eso, trabajamos día a día con un equipo comprometido y una flota lista para moverse con rapidez y seguridad.
                     </p>
                         <div class="flex justify-center">
-                            <button class="fade-in-up w-1/2 delay-5 bg-[#db582a] font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
                             <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up w-1/2 delay-5 bg-[#db582a] text-white font-bold py-3 px-4 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
                                 Escribinos
-                            </button>
-</div>
                             </a>
                         </div>
                 </div>
             </section>
-
+            
 <!-- Sección 2: SERVICIOS -->
-            <section class="w-full shadow-2xl p-8 pt-0 transform pb-48 mt-24 z-20" style="background-image: linear-gradient(to top, #2B2343, #534483), url('assets/9345037.webp) background-size: cover; background-position: center;">
             <section id="servicios" class="w-full shadow-2xl p-8 pt-0 transform pb-48 mt-24 z-20" style="background-image: linear-gradient(to top, #2B2343, #534483), url('assets/9345037.webp) background-size: cover; background-position: center;">
                 <div class="fixed overflow z-30 top-[-180px] left-[-35px] w-48 fade-in-left delay-3">
                     <img src="assets/Caballo.webp" alt="">
                 </div>
-@@ -198,38 +198,38 @@
+              
+                <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 z-30shadow-lg">
+                    <h2 class="text-center font-impact text-2xl tracking-widest" style="color:#534483; font-size:60px;">Nuestros</h2>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center justify-center p-4">
+                    <h2 class="font-impact fade-in-up delay-1 text-2xl mb-4 text-white text-center tracking-widest" style="font-size:52px;"data-animate>SERVICIOS</h2>
+                </div>
+                <div class="space-y-34 mb-18 text-left">
+                    <!-- Tarjeta de servicio 1 -->
+                    <div class="fade-in-up delay-2 l-1 text-white mb-24 p-6 pb-0 mt-8 pt-40 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
+                        <img class="fixed overflow z-10 w-3/4 top-[-50px] right-[-35px]" src="assets/Mapita00.webp" alt="">
+                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">ENVIOS EXPRESS</h3>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">AMPLIA<br>COBERTURA</h3>
+                        <p class="text-sm mb-2">Contamos con una amplia flota de vehículos para cubrir tus necesidades de transporte en todo el país.</p>
+                            <img class="relative z-10" style="top:15px;" src="assets/cajaspack2.webp" alt="">
+                        
+                    </div>
+                    <!-- Tarjeta de servicio 2 -->
+                    <div class="fade-in-up delay-3 text-white mb-24 p-6 pb-0 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
+                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">ESPECIALIZADA</h3>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">DISTRIBUCIÓN<BR>PARA EMPRESAS</h3>
+                        <p class="text-sm mb-2">Ofrecemos soluciones de almacenamiento seguras y una red de distribución eficiente para tus productos.</p>
+                            <img class="relative z-10" style="top:15px;" src="assets/mustangcalen.webp" alt="">
+                    </div>
+                    <!-- Tarjeta de servicio 3 -->
+                    <div class="fade-in-up delay-4 text-white mb-24 p-6 pb-0 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
+                        <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">OPTIMIZACIÓN</h3>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">GESTION DE<BR> GRANDES VOLUMENES</h3>
                         <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
                             <img class="relative z-10" style="top:15px;" src="assets/cajaszz.webp" alt="">
                     </div>
-                      <!-- Tarjeta de servicio 5 -->
-                    <div class="fade-in-up delay-4 text-white mb-16 p-6  shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
                     <!-- Tarjeta de servicio 5 -->
                     <div class="fade-in-up delay-4 text-white mb-16 p-6 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
                         <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">EN CASO DE AUSENCIA</h3>
@@ -107,9 +207,6 @@
                     </div>
                 </div>
 
-                <button class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
-                                Escribinos
-                </button>
                 <a href="https://wa.me/5491162597344" target="_blank" class="fade-in-up delay-5 bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-lg transition-shadow duration-300 transform hover:scale-105" data-animate>
                     Escribinos
                 </a>
@@ -117,29 +214,14 @@
             </section>
 
             <!-- Sección 4: COBERTURA -->
-            <section class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
             <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
                 <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
-                      <div class="relative z-10 flex right-0">
-                          <div class="flex flex-col relative w-3/4">
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3  $7700</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2  $5200</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1  $4400</p></div>
-                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16  delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA  $3200</p></div>
-                          </div>
-                          
-                          <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
-                          
-                          </p>
-                      <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
-                      <img src="assets/Caballo.webp" alt="">
-                      </div>
                      <div class="relative z-10 flex right-0">
                          <div class="flex flex-col relative w-3/4">
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3 $7700</p></div>
+                            <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
+                            <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
                              <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2 $5200</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
+                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3 $7700</p></div>
                          </div>
                          
                          <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
@@ -151,11 +233,252 @@
             </section>
 
             <div class="ambsolute pb-0 overflow w-full"><img src="assets/city2.webp" alt=""></div>
-@@ -479,23 +479,23 @@
 
+            <section class="bg-white rounded-lg overflow-hidden w-full mb-18 max-w-4xl p-8 space-y-8">
+                
+                <!-- Sección de C.A.B.A. -->
+                <div class="border-b-2 border-black pb-4">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 tracking-wide" style="color: #db592b;">C.A.B.A.</h2>
+                    
+                    <!-- Contenedor de la cuadrícula -->
+                    <div class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-y-4 text-3xl font-abolition" style="color: #4e84f2;">
+                        <!-- Comuna 1 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 1 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Retiro</li>
+                                    <li>San Nicolás</li>
+                                    <li>Puerto Madero</li>
+                                    <li>San Telmo</li>
+                                    <li>Montserrat</li>
+                                    <li>Constitución</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 2 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 2 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Recoleta</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 3 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 3 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-xl font-Helvetica text-left space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Balvanera</li>
+                                    <li>San Cristóbal</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 4 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 4 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>La Boca</li>
+                                    <li>Barracas</li>
+                                    <li>Parque Patricios</li>
+                                    <li>Nueva Pompeya</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 5 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 5 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Almagro</li>
+                                    <li>Boedo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 6 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 6 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Caballito</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 7 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 7 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Flores</li>
+                                    <li>Parque Chacabuco</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 8 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 8 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Villa Soldati</li>
+                                    <li>Villa Riachuelo</li>
+                                    <li>Villa Lugano</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 9 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 9 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Liniers</li>
+                                    <li>Mataderos</li>
+                                    <li>Parque Avellaneda</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 10 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 10 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Floresta</li>
+                                    <li>Monte Castro</li>
+                                    <li>Vélez Sarsfield</li>
+                                    <li>Villa Luro</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 11 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 11 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Villa Devoto</li>
+                                    <li>Villa del Parque</li>
+                                    <li>Villa General Mitre</li>
+                                    <li>Villa Santa Rita</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 12 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 12 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Coghlan</li>
+                                    <li>Saavedra</li>
+                                    <li>Villa Urquiza</li>
+                                    <li>Villa Pueyrredón</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 13 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 13 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Belgrano</li>
+                                    <li>Núñez</li>
+                                    <li>Colegiales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 14 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 14 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Palermo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comuna 15 -->
+                        <div>
+                            <p class="cursor-pointer comuna-trigger text-center md:text-left">COMUNA 15 <span class="text-sm font-normal">▼</span></p>
+                            <div class="collapsible-content">
+                                <ul class="list-none text-left text-xl font-Helvetica tracking-wider space-y-1 mt-2 pl-4 text-gray-700">
+                                    <li>Chacarita</li>
+                                    <li>Villa Crespo</li>
+                                    <li>Paternal</li>
+                                    <li>Parque Chas</li>
+                                    <li>Agronomía</li>
+                                    <li>Villa Ortúzar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de GBA -->
+                <div class="space-y-4">
+                <div class="flex flex-row md:flex-row justify-between text-center md:text-left">
+                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2 md:py-0" style="color: #4e84f2; border-color:#4e84f2 ;">GBA Zona 1</h3>
+                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2 md:py-0" style="color: #4c35a7; border-color: #4c35a7;">GBA Zona 2</h3>
+                    <h3 class="text-[1.2rem] font-bold text-blue-600 border-b-8 md:border-b-0 md:border-r-2 py-2" style="color: #392a6a; border-color:#392a6a ;">GBA Zona 3</h3>
+                </div>
+                
+                <!-- Contenedor de las listas de GBA -->
+                <div class="grid grid-cols-3 md:grid-cols-3 text-lg gap-2 font-extrabold" style="color:#db5a2c;">
+                    
+                    <!-- GBA Zona 1 -->
+                    <ul class="list-none space-y-1 font-Helvetica tracking-tighter" style="">
+                    <li>San Fernando</li>
+                    <li>San Isidro</li>
+                    <li>Vicente Lopez</li>
+                    <li>San Martin</li>
+                    <li>3 de Febrero</li>
+                    <li>Hurlingham</li>
+                    <li>Ituizango</li>
+                    <li>Moron</li>
+                    <li>La matanza</li>
+                    <li>Lomas de Zamora</li>
+                    <li>Lanús</li>
+                    <li>Avellaneda</li>
+                    </ul>
+                    
+                    <!-- GBA Zona 2 -->
+                    <ul class="list-none space-y-1">
+                    <li>Nordelta</li>
+                    <li>Tigre</li>
+                    <li>Escobar</li>
+                    <li>Malvinas Argentinas</li>
+                    <li>San Miguel</li>
+                    <li>José C. Paz</li>
+                    <li>Pilar</li>
+                    <li>Moreno</li>
+                    <li>Merlo</li>
+                    <li>La Matanza</li>
+                    <li>Ezeiza</li>
+                    <li>Esteban Echeverria</li>
+                    <li>Almirante Brown</li>
+                    <li>Quilmes</li>
+                    <li>Florencio Varela</li>
+                    <li>Berazategui</li>
+                    </ul>
+                    
+                    <!-- GBA Zona 3 -->
+                    <ul class="list-none space-y-1">
+                    <li>Campana</li>
+                    <li>Zarate</li>
+                    <li>Villa Rosa</li>
+                    <li>Luján</li>
+                    <li>General Rodriguez</li>
+                    <li>Marcos Paz</li>
+                    <li>Cañuelas</li>
+                    <li>San Vicente</li>
+                    <li>Guernica</li>
+                    <li>La Plata</li>
+                    <li>Ensenada</li>
+                    <li>Berisso</li>
+                    </ul>
+                    
+                </div>
+                </div>
+                
             </section>
 
-              <!-- Sección de Contacto -->
             <!-- Sección de Contacto -->
             <section id="contactanos" class="w-full py-20 px-8 bg-gradient-to-t from-gray-100 to-white">
                 <div class="max-w-xl mx-auto text-center">
@@ -164,34 +487,47 @@
                         Envíanos un mensaje y te responderemos a la brevedad.
                     </p>
 
-                    <form action="https://script.google.com/macros/s/AKfycbxFCw3U8vJSptJetZ7Hekl2j7WqPwOYQv8sNGb4S0VzeUEEplplonEzEUrV64F2nCHr/exec" method="POST" class="w-full space-y-6">
                     <form action="https://script.google.com/macros/s/AKfycbyE9NSGBS-kV7AzPjHtXNbtIPqRu5h3kUdN9pQ6fcr-bHn_BHdFxXkfaon6sV3rrcmr/exec" method="POST" class="w-full space-y-6">
                         <input type="text" name="nombre" placeholder="Nombre completo" required
                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <input type="email" name="email" placeholder="Correo electrónico" required
                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required
-                                     class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                                            class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                         <button type="submit"
-                                 class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                          class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             Enviar Mensaje
                         </button>
                     </form>
-@@ -528,15 +528,15 @@
+                    
+                    <div class="mt-8 flex justify-center space-x-6">
+                        <!-- Redes sociales, puedes reemplazar los # con tus enlaces -->
+                        <a href="https://www.instagram.com/mustang_logistica/" class="text-gray-600 hover:text-[#db582a] transition-colors">
+                            <img class="w-8 h-8" src="assets/smiconinsta.webp" alt="Instagram">
+                        </a>
+                        <a href="https://wa.me/5491162597344" class="text-gray-600 hover:text-[#db582a] transition-colors">
+                            <img class="w-8 h-8" src="assets/smiconwhats.webp" alt="WhatsApp">
+                        </a>
+                        <a href="mailto:Mustang.logistica.sa@gmail.com" target="_blank" class="text-gray-600 hover:text-[#db582a] transition-colors">
+                            <img class="w-8 h-8" src="assets/smiconmail.webp" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full relative">
+                <div class="flex bg-[url('assets/caballofuter.webp')] bg-cover bg-center pr-0 h-[200px]" >
+                    <div class="flex flex-row w-full items-centar pt-2">
+                        <div class="flex w-1/2 "></div>
+                        <h2 class="flex w-1/2 font-impact text-[#524381]">Mustang Logistica</h2>
+                        <div class="flex row">
+                        <img class=" flex-inline" src="" alt="">
+                        <img class=" flex-inline" src="" alt="">
+                        <img class=" flex-inline" src="" alt="">
+                        </div>
                     </div>
                 </div>
 
-                     <div class="relative w-full bg-white p-12 text-center">
-                  <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
-                  <p>
-                      Confianza en Cada Kilómetro. <br>
-                      © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
-                      Oficina Almagro, Deposito San Cristóbal CABA.<br>
-                      Tel: +54 011-6259-7344
-                  </p>
-              </div>
                       <div class="relative w-full bg-white p-12 text-center">
                     <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
                     <p>
@@ -204,20 +540,46 @@
 
             </section>
         </main>
-@@ -575,51 +575,58 @@
+        
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/5491162597344" target="_blank" class="fixed bottom-40 right-4 z-50">
+            <!-- Icono de WhatsApp en SVG -->
+            <svg height="58px" width="58px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 58" xml:space="preserve" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <path style="fill:#2CB742;" d="M0,58l4.988-14.963C2.457,38.78,1,33.812,1,28.5C1,12.76,13.76,0,29.5,0S58,12.76,58,28.5 S45.24,57,29.5,57c-4.789,0-9.299-1.187-13.26-3.273L0,58z"></path>
+                        <path style="fill:#FFFFFF;" d="M47.683,37.985c-1.316-2.487-6.169-5.331-6.169-5.331c-1.098-0.626-2.423-0.696-3.049,0.42 c0,0-1.577,1.891-1.978,2.163c-1.832,1.241-3.529,1.193-5.242-0.52l-3.981-3.981l-3.981-3.981c-1.713-1.713-1.761-3.41-0.52-5.242 c0.272-0.401,2.163-1.978,2.163-1.978c1.116-0.627,1.046-1.951,0.42-3.049c0,0-2.844-4.853-5.331-6.169 c-1.058-0.56-2.357-0.364-3.203,0.482l-1.758,1.758c-5.577,5.577-2.831,11.873,2.746,17.45l5.097,5.097l5.097,5.097 c5.577,5.577,11.873,8.323,17.45,2.746l1.758-1.758C48.048,40.341,48.243,39.042,47.683,37.985z" />
+                    </g>
+                </g>
+            </svg>
+        </a>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // JavaScript existente para la animación de entrada
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            animatedElements.forEach(el => {
                 observer.observe(el);
             });
 
-            // Nueva lógica para el menú de navegación principal
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileNav = document.getElementById('mobile-nav');
             // Lógica para el menú de navegación principal y el cierre al hacer clic
             const menuToggle = document.getElementById('menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
             const mobileNavLinks = mobileNav.querySelectorAll('a');
 
-                menuToggle.addEventListener('click', () => {
-                    mobileNav.classList.toggle('open');
             menuToggle.addEventListener('click', () => {
                 mobileNav.classList.toggle('open');
             });
@@ -235,7 +597,7 @@
                 trigger.addEventListener('click', function() {
                     const parentDiv = this.parentNode;
                     const content = parentDiv.querySelector('.collapsible-content');
-
+                    
                     // Cierra todos los demás menús antes de abrir el actual
                     comunaTriggers.forEach(otherTrigger => {
                         const otherContent = otherTrigger.parentNode.querySelector('.collapsible-content');
