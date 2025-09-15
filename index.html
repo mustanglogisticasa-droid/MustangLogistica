@@ -108,12 +108,12 @@
     <div class="relative w-full mx-auto min-h-screen flex flex-col overflow-x-hidden md:hidden">
 
        <!-- Cabecera -->
-        <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50 rounded-b-lg" style="background-color: #534483; min-height: 4rem;">
+        <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50" style="background-color: #534483; min-height: 4rem;">
             
             <!-- Contenedor para el logo pequeño y el texto (ajustada la altura) -->
             <div class="flex items-center space-x-2 h-10">
                 <!-- Logo -->
-                <img src="assets/MustanLogoIsologo.webp" alt="Logo de la empresa" class="w-10 h-10 object-contain">
+                <img src="assets/MustanLogoIsologo.webp" alt="Logo de la empresa" class="w-12 h-12 object-contain">
                 <span class="font-bold text-sm tracking-widest hidden sm:inline"></span>
             </div>
 
@@ -226,6 +226,54 @@
             <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
                 <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
                      <div class="relative z-10 flex right-0">
+
+                        <!-- Nueva sección de precios -->
+            <section class="mt-12 p-8 bg-white rounded-lg shadow-xl max-w-4xl mx-auto">
+                <!-- Título de la sección -->
+                <div class="inline-block px-8 py-2 mb-8 text-white rounded-full font-bold text-lg shadow-lg" style="background-color: #f07b48;">
+                    PRECIOS POR VOLUMEN
+                </div>
+
+                <!-- Contenedor de las tarjetas de precios -->
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+                    
+                    <!-- Columna BAJO -->
+                    <div class="bg-blue-500 text-white rounded-lg shadow-md overflow-hidden flex flex-col items-center flex-1">
+                        <div class="py-4 text-lg font-bold w-full bg-blue-600 rounded-t-lg">BAJO</div>
+                        <div class="p-6 text-left w-full flex-grow flex flex-col justify-around items-center">
+                            <p class="text-xl mb-2">CABA $3200</p>
+                            <p class="text-xl mb-2">1ro $4400</p>
+                            <p class="text-xl mb-2">2do $5200</p>
+                            <p class="text-xl mb-2">3ro $7700</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna MEDIO -->
+                    <div class="bg-purple-600 text-white rounded-lg shadow-md overflow-hidden flex flex-col items-center flex-1">
+                        <div class="py-4 text-lg font-bold w-full bg-purple-700 rounded-t-lg">MEDIO</div>
+                        <div class="p-6 text-left w-full flex-grow flex flex-col justify-around items-center">
+                            <p class="text-xl mb-2">CABA $3000</p>
+                            <p class="text-xl mb-2">1ro $4200</p>
+                            <p class="text-xl mb-2">2do $5100</p>
+                            <p class="text-xl mb-2">3ro $7300</p>
+                        </div>
+                    </div>
+
+                    <!-- Columna ALTO -->
+                    <div class="bg-yellow-500 text-white rounded-lg shadow-md overflow-hidden flex flex-col items-center flex-1">
+                        <div class="py-4 text-lg font-bold w-full bg-yellow-600 rounded-t-lg">ALTO</div>
+                        <div class="p-6 text-left w-full flex-grow flex flex-col justify-around items-center">
+                            <p class="text-xl mb-2">CABA $2900</p>
+                            <p class="text-xl mb-2">1ro $3800</p>
+                            <p class="text-xl mb-2">2do $5000</p>
+                            <p class="text-xl mb-2">3ro $6000</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
                          <div class="flex flex-col relative w-3/4">
                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
