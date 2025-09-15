@@ -33,15 +33,15 @@
         @font-face {
             font-family: 'Helvetica';
             src: url('assets/fonts/HelveticaRoundedLTStd-Bd.otf') format('opentype'),
-                 url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype');
+                url('assets/fonts/HelveticaRoundedLTStd-Black.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
 
         /*
-         * Clases para las animaciones CSS.
-         * Estas animaciones se activarán con JavaScript.
-         */
+        * Clases para las animaciones CSS.
+        * Estas animaciones se activarán con JavaScript.
+        */
         .fade-in-up {
             opacity: 0;
             transform: translateY(2rem); /* Inicia un poco abajo */
@@ -107,7 +107,7 @@
     <!-- Contenedor principal para el diseño - SE AGREGÓ LA CLASE 'md:hidden' AQUÍ -->
     <div class="relative w-full mx-auto min-h-screen flex flex-col overflow-x-hidden md:hidden">
 
-       <!-- Cabecera -->
+        <!-- Cabecera -->
         <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50" style="background-color: #534483; min-height: 4rem;">
             
             <!-- Contenedor para el logo pequeño y el texto (ajustada la altura) -->
@@ -221,13 +221,8 @@
                 </a>
 
             </section>
-
-            <!-- Sección 4: COBERTURA -->
-            <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
-                <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
-                     <div class="relative z-10 flex right-0">
-
-                        <!-- Nueva sección de precios -->
+            
+            <!-- Nueva sección de precios -->
             <section class="mt-12 p-8 bg-white rounded-lg shadow-xl max-w-4xl mx-auto">
                 <!-- Título de la sección -->
                 <div class="inline-block px-8 py-2 mb-8 text-white rounded-full font-bold text-lg shadow-lg" style="background-color: #f07b48;">
@@ -235,7 +230,7 @@
                 </div>
 
                 <!-- Contenedor de las tarjetas de precios -->
-                <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-stretch">
                     
                     <!-- Columna BAJO -->
                     <div class="bg-blue-500 text-white rounded-lg shadow-md overflow-hidden flex flex-col items-center flex-1">
@@ -273,20 +268,15 @@
                 </div>
             </section>
 
-
-                         <div class="flex flex-col relative w-3/4">
-                            <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconorange.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">CABA $3200</p></div>
-                            <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconblue.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z1 $4400</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconlila.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z2 $5200</p></div>
-                             <div class="flex items-center relative right-0"><img class="flex p-6 py-2 w-16 delay-4" src="assets/gpsiconvioleta.webp" alt="gpsicon"><p class="vertical bg-white rounded-r-full rounded-r p-1 pl-5 pr-5 font-bold">GBA Z3 $7700</p></div>
-                         </div>
-                         
-                         <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
-                         
-                         </p>
-                     <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
-                     <img src="assets/Caballo.webp" alt="">
-                     </div>
+            <!-- Sección 4: COBERTURA -->
+            <section id="cobertura" class="relative overflow top-[-3rem] w-full bg-gradient-to-b from-transparent via-[#4E83F0] via-10% to-white curved-container p-8 transform z-20">
+                <h2 class="font-impact fade-in-up delay-1 text-9x1 mb-4 text-white text-center tracking-widest leading-tight" style="font-size:52px;" data-animate>ZONAS DE <BR>COBERTURA</h2>
+                <div class="relative z-10 flex right-0">
+                    <img class="absolute overflow item-center h-[22rem] right-0 top-48" src="assets/Mapita00.webp" alt="mapa">
+                    <div class="fixed overflow z-30 top-[450px] left-[-35px] w-40 fade-in-left delay-3">
+                        <img src="assets/Caballo.webp" alt="">
+                    </div>
+                </div>
             </section>
 
             <div class="ambsolute pb-0 overflow w-full"><img src="assets/city2.webp" alt=""></div>
@@ -546,13 +536,13 @@
 
                     <form action="https://script.google.com/macros/s/AKfycbyE9NSGBS-kV7AzPjHtXNbtIPqRu5h3kUdN9pQ6fcr-bHn_BHdFxXkfaon6sV3rrcmr/exec" method="POST" class="w-full space-y-6">
                         <input type="text" name="nombre" placeholder="Nombre completo" required
-                               class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
+                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <input type="email" name="email" placeholder="Correo electrónico" required
-                               class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
+                                class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required
-                                           class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
+                                        class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                         <button type="submit"
-                                         class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                                        class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             Enviar Mensaje
                         </button>
                     </form>
@@ -585,15 +575,15 @@
                     </div>
                 </div>
 
-                      <div class="relative w-full bg-white p-12 text-center">
+                    <div class="relative w-full bg-white p-12 text-center">
                     <h2 class="text-[#524381] font-impact text-[26px]">Mustang Logistica</h2>
                     <p>
-                          Confianza en Cada Kilómetro. <br>
-                          © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
-                          Oficina Almagro, Deposito San Cristóbal CABA.<br>
-                          Tel: +54 011-6259-7344
+                            Confianza en Cada Kilómetro. <br>
+                            © 2024 Mustang Logística.<br> Todos los derechos reservados.<br>
+                            Oficina Almagro, Deposito San Cristóbal CABA.<br>
+                            Tel: +54 011-6259-7344
                     </p>
-                  </div>
+                </div>
 
             </section>
         </main>
@@ -614,7 +604,6 @@
         </a>
 
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // JavaScript existente para la animación de entrada
