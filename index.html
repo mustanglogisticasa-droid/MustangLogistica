@@ -104,8 +104,8 @@
 </head>
 <body class="bg-gradient-to-t from-gray-100 to-indigo-50 min-h-screen flex flex-col items-center justify-start text-gray-800">
 
-    <!-- Contenedor principal para el diseño - SE AGREGÓ LA CLASE 'md:hidden' AQUÍ -->
-    <div class="relative w-full mx-auto min-h-screen flex flex-col overflow-x-hidden md:hidden">
+    <!-- Contenedor principal con ancho máximo de 640px para escritorios -->
+    <div class="relative max-w-[640px] mx-auto min-h-screen flex flex-col overflow-x-hidden">
 
         <!-- Cabecera -->
         <header class="text-white p-4 flex items-center justify-between shadow-lg fixed top-0 left-0 right-0 z-50" style="background-color: #534483; min-height: 4rem;">
@@ -209,7 +209,7 @@
                     <!-- Tarjeta de servicio 5 -->
                     <div class="fade-in-up delay-4 text-white mb-16 p-6 shadow-lg border-2" style="background-image: linear-gradient(to top, #2B2343, #534483); border-color: #2B2343;" data-animate>
                         <h3 class="text-3xl tracking-[0.2rem] font-abolition mb-2" style="color: #FCC02E;">EN CASO DE AUSENCIA</h3>
-                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">GESTION DE<BR> GRANDES VOLUMENES</h3>
+                        <h3 class="text-xl font-bold mb-2 leading-tight" style="font-size:32px;">ENTREGA SEGURA<BR>Y EFICIENTE.</h3>
                         <p class="text-sm mb-2">Gestión de devoluciones y reciclaje de productos de forma rápida y sencilla.</p>
                         <img class="pt-6 w-full" src="assets/cballt3.webp" alt="">
                     </div>
@@ -537,6 +537,7 @@
 
 
             
+            
 
             <!-- Sección de Contacto -->
             <section id="contactanos" class="w-full py-20 px-8 bg-gradient-to-t from-gray-100 to-white">
@@ -552,9 +553,9 @@
                         <input type="email" name="email" placeholder="Correo electrónico" required
                                 class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors">
                         <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required
-                                    class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
+                                        class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-[#4E83F0] transition-colors"></textarea>
                         <button type="submit"
-                                    class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                                        class="w-full bg-[#db582a] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             Enviar Mensaje
                         </button>
                     </form>
